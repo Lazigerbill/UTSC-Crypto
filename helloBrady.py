@@ -8,5 +8,15 @@ def hello_world():
     return render_template('index.html')
 
 
+@app.route('/index.html')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/minor.html')
+def minor():
+    return render_template('minor.html')
+
+
 if __name__ == '__main__':
     app.run()
