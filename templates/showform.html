@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="{{ url_for('static', filename='css/showform.css')}}" rel="stylesheet">
 </head>
 <body>
+
+<form method="POST" action="/">
+    {{ form.csrf_token }}
+    {{ form.ticker.label }} {{ form.ticker(size=20) }}
+    <input type="submit" value="Go">
+</form>
+
+{% for item in data %}
+    <tr>
+        <td>{{item[0]}}</td>
+        <td>{{item[1]}}</td>
+        ...
+    </tr>
+{% endfor %}
 
 </body>
 </html>
