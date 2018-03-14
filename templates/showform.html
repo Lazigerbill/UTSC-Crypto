@@ -7,9 +7,11 @@
 </head>
 <body>
 
+Please insert your watchlist name you wish to create or have previously created below:
+<br>
 <form method="POST" action="/">
     {{ form.csrf_token }}
-    {{ form.ticker.label }} {{ form.ticker(size=20) }}
+    {{ form.WlName.label }} {{ form.WlName(size=50) }}
     <input type="submit" value="Go">
 </form>
 

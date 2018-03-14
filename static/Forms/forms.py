@@ -3,6 +3,6 @@ from wtforms import StringField
 from wtforms.validators import DataRequired
 
 
-class TickerForm(FlaskForm):
-    ticker = StringField('ticker', validators=[DataRequired()])
+class WatchListForm(FlaskForm):
+    WlName = StringField('Watch List Name:', validators=[DataRequired()])
     # Length(min=1, max=15)])

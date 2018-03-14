@@ -1,13 +1,13 @@
 
 def insert_new_wl(cursor, connection, name):
     # insert row into WL
-    cursor.execute("""INSERT INTO WL (WlName) VALUES (%s)""", (name))
+    cursor.execute("""INSERT INTO WL (WlName) VALUES (%s)""", name)
     connection.commit()
     return
 
 
 def insert_new_stock(cursor, connection, ticker):
-    cursor.execute("""INSERT INTO Stock (Ticker) VALUES (%s)""", (ticker))
+    cursor.execute("""INSERT INTO Stock (Ticker) VALUES (%s)""", ticker)
     connection.commit()
     return
 

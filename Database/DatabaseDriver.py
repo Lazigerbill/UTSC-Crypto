@@ -14,7 +14,7 @@ def initialize_database(cursor, connection):
     cursor.execute("""CREATE TABLE IF NOT EXISTS WL(
     WlId INT NOT NULL AUTO_INCREMENT,
     WlName TEXT,
-    PRIMARY KEY (Wlid))""")
+    PRIMARY KEY (WlId))""")
     connection.commit()
 
     # create Stock table

@@ -1,17 +1,24 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flaskext.mysql import MySQL
 from Database import DatabaseDriver, DatabaseInserter, DatabaseSelector
-from static.Forms.forms import TickerForm
+from static.Forms.forms import WatchListForm
 
+# launching the app
 app = Flask(__name__)
+app.config.update(dict(
+    SECRET_KEY="powerful secretkey",
+    WTF_CSRF_SECRET_KEY="a csrf secret key"
+))
 
+# connecting to MYSQL server
 mysql = MySQL()
-app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_USER'] = 'financelab'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'equity123'
 app.config['MYSQL_DATABASE_DB'] = 'sys'
 app.config['MYSQL_DATABASE_HOST'] = '127.0.0.1'
 mysql.init_app(app)
 
+# creating or connecting database
 conn = mysql.connect()
 cursor = conn.cursor()
 database_connected = DatabaseDriver.create_database(cursor, conn)
@@ -26,9 +33,23 @@ DatabaseInserter.insert_new_wl(cursor, conn, "Brady")
 DatabaseInserter.insert_new_wlcontents(cursor, conn, 1, 1, "AAPL")
 
 
-@app.route('/showform.html', methods=('GET', 'POST'))
+@app.route('/', methods=('GET', 'POST'))
 def submit():
-    form = TickerForm()
+    form = WatchListForm()
     if form.validate_on_submit():
-        return redirect('/index.html')
+        wlname = request.form['WlName']
+        el = DatabaseSelector.get_wl(cursor, conn, wlname)
+        if len(DatabaseSelector.get_wl(cursor, conn, wlname)) == 0:
+            DatabaseInserter.insert_new_wl(cursor, conn, wlname)
+        else:
+            return redirect(url_for('index'))
     return render_template('showform.html', form=form)
+
+
+@app.route('/index.html')
+def index():
+    return render_template('index.html')
+
+
+if __name__ == '__main__':
+    app.run()
