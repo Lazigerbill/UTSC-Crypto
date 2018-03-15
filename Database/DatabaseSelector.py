@@ -5,6 +5,8 @@ def get_wl(cursor, connection, name):
     return cursor.fetchall()
 
 
-def get_stock_data(cursor, connection):
-    cursor.execute("""SELECT * FROM STOCK """)
+def get_user_stock_data(cursor, connection, watchlistid):
+    cursor.execute("""SELECT * FROM WLContents WHERE WlId LIKE (%s) """, watchlistid)
+    connection.commit()
+    return cursor.fetchall()
 

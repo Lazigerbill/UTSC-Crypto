@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static', filename='css/showwatchlist.css') }}" rel="stylesheet">
+</head>
+<body>
+
+These are your watchlists below:
+<br>
+<br>
+<center>
+    <div class="divTable blueTable">
+        <div class="divTableHeading">
+            <div class="divTableRow">
+                <div class="divTableHead">ID</div>
+                <div class="divTableHead">WatchlistName</div>
+            </div>
+        </div>
+        <div class="divTableBody">
+
+                {% for item in data %}
+                    <tr>
+                        <div class="divTableRow">
+                        <div class="divTableCell">{{item[0]}}</div>
+                        <div class="divTableCell">{{item[1]}}</div>
+                        </div>
+                    </tr>
+                {% endfor %}
+            </div>
+        </div>
+</center>
+<br>
+<form method="POST" action="/contents.html">
+    {{ form1.csrf_token }}
+    {{ form1.WlId.label }} {{ form1.WlId(size=50) }}
+    <input type="submit" value="Go">
+</form>
+
+</body>
+</html>
