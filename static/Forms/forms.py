@@ -10,3 +10,7 @@ class WatchListForm(FlaskForm):
 
 class WatchListContentsForm(FlaskForm):
     WlId = IntegerField('Watch List ID:', validators=[DataRequired()])
+
+
+class AddStockForm(FlaskForm):
+    Ticker = StringField('Stock Ticker:', validators=[DataRequired()])
