@@ -35,17 +35,9 @@ DatabaseInserter.insert_new_stock(cursor, conn, "Bad")
 var = DatabaseSelector.get_stock_id(cursor, conn, "Bad")
 
 
-@app.route('/', methods=('GET', 'POST'))
-def submit():
-    form = WatchListForm()
-    if form.validate_on_submit():
-        wlname = request.form['WlName']
-        data = DatabaseSelector.get_wl(cursor, conn, wlname)
-        if len(DatabaseSelector.get_wl(cursor, conn, wlname)) == 0:
-            DatabaseInserter.insert_new_wl(cursor, conn, wlname)
-        form1 = WatchListContentsForm()
-        return render_template('showwatchlist.html', data=data, form1=form1)
-    return render_template('showform.html', form=form)
+@app.route('/')
+def start():
+    return redirect(url_for('submit'))
 
 
 @app.route('/index.html')
@@ -53,17 +45,44 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/showwatchlist.html', methods=('GET', 'POST'))
-def showwatchlist():
+@app.route('/submit', methods=['GET', 'POST'])
+def submit():
+    form = WatchListForm()
+    if form.validate_on_submit():
+        wlname = request.form['WlName']
+        if len(DatabaseSelector.get_wl(cursor, conn, wlname)) == 0:
+            DatabaseInserter.insert_new_wl(cursor, conn, wlname)
+        return redirect(url_for('handle_data', wlName=wlname))
+    return render_template('showform.html', form=form)
+
+
+@app.route('/<wlName>', methods=['GET', 'POST'])
+def handle_data(wlName):
+    data = DatabaseSelector.get_wl(cursor, conn, wlName)
     form = WatchListContentsForm()
     if form.validate_on_submit():
         wlid = request.form['WlId']
-        data = DatabaseSelector.get_user_stock_data(cursor, conn, wlid)
-        form2 = AddStockForm
-        return render_template('contents.html', data=data, form2=form2)
+        return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlid))
+    return render_template('showwatchlist.html', form=form, data=data, wlName=wlName)
 
 
-@app.route('/contents.html', methods=('GET', 'POST'))
+@app.route('/<wlName>/<wlId>', methods=['GET', 'POST'])
+def show_watchlist(wlName, wlId):
+    data = DatabaseSelector.get_user_stock_data(cursor, conn, wlId)
+    form = AddStockForm()
+    if form.validate_on_submit():
+        ticker = request.form['Ticker']
+        if len(DatabaseSelector.get_stock(cursor, conn, ticker)) == 0:
+            DatabaseInserter.insert_new_stock(cursor, conn, ticker)
+            DatabaseInserter. insert_new_wlcontents(cursor, conn, wlId, ticker)
+            return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
+        else:
+            DatabaseInserter. insert_new_wlcontents(cursor, conn, wlId, ticker)
+            return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
+    return render_template('contents.html', form=form, data=data, wlName=wlName, wlId=wlId)
+
+
+@app.route('//<wlName>/<wlId>', methods=('GET', 'POST'))
 def contents():
     data = DatabaseSelector.get_user_stock_data(cursor, conn, wlid)
     form = AddStockForm()

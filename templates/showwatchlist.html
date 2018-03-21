@@ -32,11 +32,11 @@ These are your watchlists below:
         </div>
 </center>
 <br>
-Please choose your watchlist:
 
-<form method="POST" action="/showwatchlist.html">
-    {{ form1.csrf_token }}
-    {{ form1.WlId.label }} {{ form1.WlId(size=50) }}
+
+<form method="POST" action= "{{ url_for('handle_data', wlName=wlName)}}">
+    {{ form.csrf_token }}
+    {{ form.WlId.label }} {{ form.WlId(size=50) }}
     <input type="submit" value="Go">
 </form>
 

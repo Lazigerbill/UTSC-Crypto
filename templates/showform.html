@@ -9,7 +9,9 @@
 
 Please insert your watchlist name you wish to create or have previously created below:
 <br>
-<form method="POST" action="/">
+
+
+<form method="POST" action="{{ url_for('submit')}}">
     {{ form.csrf_token }}
     {{ form.WlName.label }} {{ form.WlName(size=50) }}
     <input type="submit" value="Go">

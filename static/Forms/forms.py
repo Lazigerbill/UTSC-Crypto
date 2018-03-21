@@ -13,4 +13,4 @@ class WatchListContentsForm(FlaskForm):
 
 
 class AddStockForm(FlaskForm):
-    Ticker = StringField('Stock Ticker:', validators=[DataRequired()])
+    Ticker = StringField('Add new stock via Ticker:', validators=[DataRequired()])

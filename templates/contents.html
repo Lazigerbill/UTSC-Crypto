@@ -32,5 +32,11 @@ These are your stocks below:
         </div>
     </div>
 </center>
+
+<form method="POST" action= "{{ url_for('show_watchlist', wlName=wlName, wlId=wlId)}}">
+    {{ form.csrf_token }}
+    {{ form.Ticker.label }} {{ form.Ticker(size=50) }}
+    <input type="submit" value="Go">
+</form>
 </body>
 </html>
