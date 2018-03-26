@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flaskext.mysql import MySQL
-from Database import DatabaseDriver, DatabaseInserter, DatabaseSelector
-from static.Forms.forms import WatchListForm, WatchListContentsForm, AddStockForm
+from Database import DatabaseDriver, DatabaseInserter, DatabaseSelector, DatabaseDeleter
+from static.Forms.forms import WatchListForm, WatchListContentsForm, StockForm
 
 # launching the app
 app = Flask(__name__)
@@ -28,11 +28,9 @@ if database_connected is not None:
 else:
     print("Failure")
 
-DatabaseInserter.insert_new_stock(cursor, conn, "AAPL")
-DatabaseInserter.insert_new_wl(cursor, conn, "Brady")
-DatabaseInserter.insert_new_wlcontents(cursor, conn, 1, "AAPL")
-DatabaseInserter.insert_new_stock(cursor, conn, "Bad")
-var = DatabaseSelector.get_stock_id(cursor, conn, "Bad")
+# DatabaseInserter.insert_new_stock(cursor, conn, "AAPL")
+# DatabaseInserter.insert_new_wl(cursor, conn, "Brady")
+# DatabaseInserter.insert_new_wlcontents(cursor, conn, 1, "AAPL")
 
 
 @app.route('/')
@@ -69,8 +67,8 @@ def handle_data(wlName):
 @app.route('/<wlName>/<wlId>', methods=['GET', 'POST'])
 def show_watchlist(wlName, wlId):
     data = DatabaseSelector.get_user_stock_data(cursor, conn, wlId)
-    form = AddStockForm()
-    if form.validate_on_submit():
+    form = StockForm()
+    if form.validate_on_submit() and form.data.get('Add'):
         ticker = request.form['Ticker']
         if len(DatabaseSelector.get_stock(cursor, conn, ticker)) == 0:
             DatabaseInserter.insert_new_stock(cursor, conn, ticker)
@@ -79,38 +77,16 @@ def show_watchlist(wlName, wlId):
         else:
             DatabaseInserter. insert_new_wlcontents(cursor, conn, wlId, ticker)
             return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
-    return render_template('contents.html', form=form, data=data, wlName=wlName, wlId=wlId)
-
-
-@app.route('//<wlName>/<wlId>', methods=('GET', 'POST'))
-def contents():
-    data = DatabaseSelector.get_user_stock_data(cursor, conn, wlid)
-    form = AddStockForm()
-    if form.validate_on_submit():
-        Ticker = request.form['Ticker']
-        if len(DatabaseSelector.get_stock(cursor, conn, Ticker)) == 0:
-            DatabaseInserter.insert_new_stock(cursor, conn, Ticker)
-            DatabaseInserter. insert_new_wlcontents(cursor, conn, wlId, Ticker)
-            return render_template('contents.html', data=data, form=form)
+    if form.validate_on_submit() and form.data.get('Delete'):
+        ticker = request.form['Ticker']
+        if len(DatabaseSelector.get_stock(cursor, conn, ticker)) == 0:
+            # Should notify user, that stock does not exist in your watchlist!
+            return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
         else:
-            DatabaseInserter. insert_new_wlcontents(cursor, connection, wlId, Ticker)
-            return render_template('contents.html', data=data, form=form)
-    return render_template('contents.html', data=data, form=form)
+            DatabaseDeleter.delete_stock_from_wl(cursor, conn, wlId, ticker)
+            return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
+    return render_template('contents.html', form=form, data=data, wlName=wlName)
 
-"""@app.route(/contents.html', methods=('GET', 'POST'))
-def contents_add_stock(wlid):
-    form = AddStockForm()
-    if form.validate_on_submit():
-        Ticker = request.form['Ticker']
-        data = DatabaseSelector.get_user_stock_data(cursor, conn, wlid)
-        if len(DatabaseSelector.get_stock(cursor, conn, Ticker)) == 0:
-            DatabaseInserter.insert_new_stock(cursor, connection, Ticker)
-            DatabaseInserter. insert_new_wlcontents(cursor, connection, wlId, Ticker)
-             return render_template again
-        else:
-            DatabaseInserter. insert_new_wlcontents(cursor, connection, wlId, Ticker)
-            return render_template
-        """
 
 if __name__ == '__main__':
     app.run()

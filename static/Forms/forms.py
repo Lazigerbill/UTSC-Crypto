@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired
+from wtforms import StringField, IntegerField, BooleanField
+from wtforms.validators import DataRequired, Optional
 
 
 class WatchListForm(FlaskForm):
@@ -12,5 +12,8 @@ class WatchListContentsForm(FlaskForm):
     WlId = IntegerField('Watch List ID:', validators=[DataRequired()])
 
 
-class AddStockForm(FlaskForm):
-    Ticker = StringField('Add new stock via Ticker:', validators=[DataRequired()])
+class StockForm(FlaskForm):
+    Ticker = StringField('Add or Delete stock via Ticker:', validators=[DataRequired()])
+    Add = BooleanField('Add Stock', default=False)
+    Delete = BooleanField('Delete Stock', default=False)
+
