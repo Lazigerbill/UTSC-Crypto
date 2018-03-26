@@ -85,7 +85,7 @@ def show_watchlist(wlName, wlId):
         else:
             DatabaseDeleter.delete_stock_from_wl(cursor, conn, wlId, ticker)
             return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
-    return render_template('contents.html', form=form, data=data, wlName=wlName)
+    return render_template('contents.html', form=form, data=data, wlName=wlName, wlId=wlId)
 
 
 if __name__ == '__main__':
