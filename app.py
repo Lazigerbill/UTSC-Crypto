@@ -5,19 +5,12 @@ from static.Forms.forms import WatchListForm, WatchListContentsForm, StockForm
 
 # launching the app
 app = Flask(__name__)
-app.config.update(dict(
-    SECRET_KEY="powerful secretkey",
-    WTF_CSRF_SECRET_KEY="a csrf secret key"
-))
-
 # connecting to MYSQL server
 mysql = MySQL()
-app.config['MYSQL_DATABASE_USER'] = 'financelab'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'equity123'
-app.config['MYSQL_DATABASE_DB'] = 'sys'
-app.config['MYSQL_DATABASE_HOST'] = '127.0.0.1'
 mysql.init_app(app)
-
+# loading keys from config file
+app.config.from_pyfile('instance/config.py', silent=False)
+mysql.init_app(app)
 # creating or connecting database
 conn = mysql.connect()
 cursor = conn.cursor()
@@ -27,10 +20,6 @@ if database_connected is not None:
     print("Success")
 else:
     print("Failure")
-
-# DatabaseInserter.insert_new_stock(cursor, conn, "AAPL")
-# DatabaseInserter.insert_new_wl(cursor, conn, "Brady")
-# DatabaseInserter.insert_new_wlcontents(cursor, conn, 1, "AAPL")
 
 
 @app.route('/')
@@ -112,5 +101,5 @@ def new_watchlist(wlName):
     return redirect(url_for('handle_data', wlName=wlName))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
