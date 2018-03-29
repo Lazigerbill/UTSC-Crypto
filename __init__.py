@@ -7,9 +7,8 @@ from static.Forms.forms import WatchListForm, WatchListContentsForm, StockForm
 app = Flask(__name__)
 # connecting to MYSQL server
 mysql = MySQL()
-mysql.init_app(app)
 # loading keys from config file
-app.config.from_pyfile('instance/config.py', silent=False)
+app.config.from_pyfile('instance/config_file.py', silent=True)
 mysql.init_app(app)
 # creating or connecting database
 conn = mysql.connect()
@@ -40,7 +39,7 @@ def submit():
         if len(DatabaseSelector.get_wl(cursor, conn, wlname)) == 0:
             DatabaseInserter.insert_new_wl(cursor, conn, wlname)
         return redirect(url_for('handle_data', wlName=wlname))
-    return render_template('showform.html', form=form)
+    return render_template('index.html', form=form)
 
 
 @app.route('/<wlName>', methods=['GET', 'POST'])
@@ -101,5 +100,5 @@ def new_watchlist(wlName):
     return redirect(url_for('handle_data', wlName=wlName))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run()

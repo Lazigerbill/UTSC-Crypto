@@ -12,19 +12,19 @@ input {
 div.blueTable {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     border: 0px solid #1A1FA4;
-    background-color: antiquewhite;
+    background-color: #1ab394;
     width: 75%;
     height: 75%;
     text-align: center;
 }
 .divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
-    border: 2px solid #AAAAAA;
+    border: 2px solid #1ab394;
     padding: 10px 10px;
 }
 .divTable.blueTable .divTableBody .divTableCell {
     font-size: 13px;
     font-weight: bolder;
-    color: RED;
+    color: #1ab394;
 }
 .divTable.blueTable .divTableHeading {
     background: #3F3F44;

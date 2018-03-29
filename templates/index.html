@@ -25,7 +25,7 @@
                 <li class="nav-header">
                     <div class="dropdown profile-element">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Brady Vallbacka</strong>
                              </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a href="#">Logout</a></li>
@@ -72,21 +72,29 @@
                 <div class="col-lg-12">
                     <div class="text-center m-t-lg">
                         <h1>
-                            Welcome to UTSC Finance Lab Cryptocurrency Project
+                            Welcome to the UTSC Student Management Fund Watchlist
                         </h1>
-                        <small>
-                            It is an application skeleton for a typical web app. You can use it to quickly bootstrap your webapp projects and dev environment for these projects.
-                        </small>
+                        <br>
+                            Please insert your watchlist name you wish to create or have previously created below:
+                            <br>
+                        <br>
+                        <br>
+
+                            <form method="POST" action="{{ url_for('submit')}}">
+                                {{ form.csrf_token }}
+                                {{ form.WlName.label }} {{ form.WlName(size=50) }}
+                                <input type="submit" value="Go">
+                            </form>
                     </div>
                 </div>
             </div>
         </div>
         <div class="footer">
             <div class="pull-right">
-                10GB of <strong>250GB</strong> Free.
+                UTSC Finance Lab
             </div>
             <div>
-                <strong>Copyright</strong> Example Company &copy; 2014-2017
+                <strong>Created By:</strong> Brady Vallbacka
             </div>
         </div>
 
