@@ -56,36 +56,48 @@ def submit():
 
 @app.route('/<wlName>', methods=['GET', 'POST'])
 def handle_data(wlName):
+    # get user watchlist and if wlId is valid return view of watchlist
     data = DatabaseSelector.get_wl(cursor, conn, wlName)
     form = WatchListContentsForm()
     if form.validate_on_submit():
         wlid = request.form['WlId']
+        check = DatabaseSelector.get_wl_for_user(cursor, conn, wlName, wlid)
+        if len(check) == 0:
+            return redirect(url_for('handle_data', wlName=wlName))
         return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlid))
     return render_template('showwatchlist.html', form=form, data=data, wlName=wlName)
 
 
 @app.route('/<wlName>/<wlId>', methods=['GET', 'POST'])
 def show_watchlist(wlName, wlId):
-    data = DatabaseSelector.get_user_stock_data(cursor, conn, wlId)
+    data = DatabaseSelector.get_user_stock_data(cursor, conn, wlName, wlId)
+    if data == 0:
+        return redirect(url_for('handle_data', wlName=wlName))
     form = StockForm()
-    if form.validate_on_submit() and form.data.get('Add'):
+    if form.validate_on_submit():
         ticker = request.form['Ticker']
+        # check if user has stock in watchlist
+        man = DatabaseSelector.get_stock_from_wl(cursor, conn, wlId, ticker)
+        if len(man) != 0:
+            return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
+        # check if stock exists in database, if not add
         if len(DatabaseSelector.get_stock(cursor, conn, ticker)) == 0:
             DatabaseInserter.insert_new_stock(cursor, conn, ticker)
             DatabaseInserter. insert_new_wlcontents(cursor, conn, wlId, ticker)
             return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
+        # add to user watchlist
         else:
             DatabaseInserter. insert_new_wlcontents(cursor, conn, wlId, ticker)
             return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
-    if form.validate_on_submit() and form.data.get('Delete'):
-        ticker = request.form['Ticker']
-        if len(DatabaseSelector.get_stock(cursor, conn, ticker)) == 0:
-            # Should notify user, that stock does not exist in your watchlist!
-            return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
-        else:
-            DatabaseDeleter.delete_stock_from_wl(cursor, conn, wlId, ticker)
-            return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
     return render_template('contents.html', form=form, data=data, wlName=wlName, wlId=wlId)
+
+
+@app.route('/delete_row/<wlName>/<wlId>/<ticker>', methods=['GET', 'POST'])
+def delete_row(wlName, wlId, ticker):
+    if request.method == 'POST':
+        # delete row from table
+        DatabaseDeleter.delete_stock_from_wl(cursor, conn, wlId, ticker)
+    return redirect(url_for('show_watchlist', wlId=wlId, wlName=wlName))
 
 
 if __name__ == '__main__':

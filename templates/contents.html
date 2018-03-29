@@ -17,6 +17,7 @@ These are your stocks below:
             <div class="divTableRow">
                 <div class="divTableHead">StockID</div>
                 <div class="divTableHead">Ticker</div>
+                <div class="divTableHead">Delete</div>
             </div>
         </div>
         <div class="divTableBody">
@@ -26,7 +27,10 @@ These are your stocks below:
                     <div class="divTableRow">
                         <div class="divTableCell">{{item[1]}}</div>
                         <div class="divTableCell">{{item[2]}}</div>
-
+                        <div class="divTableCell">
+                        <form id="stockdel-{{ item[1] }}" action="{{ url_for('delete_row', wlName=wlName, wlId=wlId, ticker=item[2]) }}" method="post">
+                            <button type="submit">Delete</button>
+                        </form> </div>
                     </div>
                 </tr>
             {% endfor %}
@@ -37,8 +41,6 @@ These are your stocks below:
 <form method="POST" action= "{{ url_for('show_watchlist', wlName=wlName, wlId=wlId)}}">
     {{ form.csrf_token }}
     {{ form.Ticker.label }} {{ form.Ticker(size=50) }}
-    {{ form.Add() }} {{form.Add.label}}
-    {{ form.Delete() }} {{ form.Delete.label }}
     <input type="submit"  value="Go">
 </form>
 

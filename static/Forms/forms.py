@@ -13,7 +13,5 @@ class WatchListContentsForm(FlaskForm):
 
 
 class StockForm(FlaskForm):
-    Ticker = StringField('Add or Delete stock via Ticker:', validators=[DataRequired()])
-    Add = BooleanField('Add Stock')
-    Delete = BooleanField('Delete Stock')
+    Ticker = StringField('Add stock via Ticker:', validators=[DataRequired()])
 
