@@ -30,6 +30,9 @@ These are your watchlists below:
                 {% endfor %}
             </div>
         </div>
+    <form id="newwatchlist" action="{{ url_for('new_watchlist', wlName=wlName) }}" method="post">
+        <button type="submit">Create New Watchlist</button>
+    </form> </div>
 </center>
 <br>
 

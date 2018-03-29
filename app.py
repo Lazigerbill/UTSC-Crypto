@@ -56,6 +56,10 @@ def submit():
 
 @app.route('/<wlName>', methods=['GET', 'POST'])
 def handle_data(wlName):
+    # check if user tries to enter name that does not exist in url
+    if len(DatabaseSelector.get_wl(cursor, conn, wlName)) == 0:
+        return redirect(url_for('submit'))
+
     # get user watchlist and if wlId is valid return view of watchlist
     data = DatabaseSelector.get_wl(cursor, conn, wlName)
     form = WatchListContentsForm()
@@ -98,6 +102,14 @@ def delete_row(wlName, wlId, ticker):
         # delete row from table
         DatabaseDeleter.delete_stock_from_wl(cursor, conn, wlId, ticker)
     return redirect(url_for('show_watchlist', wlId=wlId, wlName=wlName))
+
+
+@app.route('/new_watchlist/<wlName>', methods=['GET', 'POST'])
+def new_watchlist(wlName):
+    if request.method == 'POST':
+        # create a new watchlist for user
+        DatabaseInserter.insert_new_wl(cursor, conn, wlName)
+    return redirect(url_for('handle_data', wlName=wlName))
 
 
 if __name__ == '__main__':
