@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flaskext.mysql import MySQL
 from Database import DatabaseDriver, DatabaseInserter, DatabaseSelector, DatabaseDeleter
 from static.Forms.forms import WatchListForm, WatchListContentsForm, StockForm
+from testapi import lastDict, volumeDict, percentchangeDict, getUrl
 
 # launching the app
 app = Flask(__name__)
@@ -81,7 +82,20 @@ def show_watchlist(wlName, wlId):
         else:
             DatabaseInserter. insert_new_wlcontents(cursor, conn, wlId, ticker)
             return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
-    return render_template('contents.html', form=form, data=data, wlName=wlName, wlId=wlId)
+
+    # initialize 3 dictionaries for fields from API
+    pcDict = percentchangeDict()
+    volDict = volumeDict()
+    priceDict = lastDict()
+
+    # loop through watchlist and add fields to dict and send dict to html
+    for row in data:
+        pcDict[row[2]] = getUrl(row[2]).get('PercentChangeFromPreviousClose')
+        volDict[row[2]] = getUrl(row[2]).get('Volume')
+        priceDict[row[2]] = getUrl(row[2]).get('Last')
+    keys = list(volDict.keys())
+    return render_template('contents.html', form=form, percentagechangeDict=pcDict,
+                           volumeDict=volDict, lastDict=priceDict, keys=keys, wlName=wlName, wlId=wlId)
 
 
 @app.route('/delete_row/<wlName>/<wlId>/<ticker>', methods=['GET', 'POST'])

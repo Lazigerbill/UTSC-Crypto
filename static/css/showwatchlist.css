@@ -18,13 +18,13 @@ div.blueTable {
     text-align: center;
 }
 .divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
-    border: 2px solid #1ab394;
+    border: 2px solid black;
     padding: 10px 10px;
 }
 .divTable.blueTable .divTableBody .divTableCell {
     font-size: 13px;
     font-weight: bolder;
-    color: #1ab394;
+    color: black;
 }
 .divTable.blueTable .divTableHeading {
     background: #3F3F44;

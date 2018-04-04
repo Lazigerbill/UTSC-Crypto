@@ -15,22 +15,38 @@ from instance.config_file import _token
 # Get JSON data to format and print
 def printData(jsonText):
     data = json.loads(jsonText)
-    print("Open:", data['Open'])
+    return data
 
 
 # make a get request to given url
 
 
-def getUrl(url):
-    response = requests.get(url)
+def getUrl(ticker):
+    base_url = "http://globalquotes.xignite.com/"
+    action = "v3/xGlobalQuotes.json/GetGlobalDelayedQuote?IdentifierType=Symbol&Identifier="
+    fields = "&_fields=Last,PercentChangeFromPreviousClose,Volume,Time&_token="
+    response = requests.get(base_url+action+ticker+fields+_token)
+    text = response.text
+    api_data = json.loads(text)
 
-    return response
+    return api_data
 
 
-base_url = "http://globalquotes.xignite.com/"
-action = "v3/xGlobalQuotes.json/GetGlobalDelayedQuote?IdentifierType=Symbol&Identifier="
-ticker = "BAC"
-fields = "&_fields=Open,Close,High,Low&_token="
+response1 = getUrl("BAC")
 
-response = getUrl(base_url+action+ticker+fields+_token)
-printData(response.text)
+
+# create dictionaries for all fields
+
+def lastDict():
+    d = {}
+    return d
+
+
+def volumeDict():
+    d = {}
+    return d
+
+
+def percentchangeDict():
+    d = {}
+    return d

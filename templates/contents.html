@@ -78,28 +78,103 @@
                             <div class="divTable blueTable">
                                 <div class="divTableHeading">
                                     <div class="divTableRow">
-                                        <div class="divTableHead">StockID</div>
                                         <div class="divTableHead">Ticker</div>
-                                        <div class="divTableHead">Delete</div>
+                                        <div class="divTableHead">Last Price</div>
+                                        <div class="divTableHead">Change since close</div>
+                                        <div class="divTableHead">Volume</div>
                                     </div>
                                 </div>
                                 <div class="divTableBody">
-
-                                    {% for item in data %}
+                                    {% for item in keys %}
                                         <tr>
                                             <div class="divTableRow">
-                                                <div class="divTableCell">{{item[1]}}</div>
-                                                <div class="divTableCell">{{item[2]}}</div>
+                                                <div class="divTableCell">{{item}}</div>
+                                                <div class="divTableCell">{{lastDict.get(item)}}</div>
+                                                <div class="divTableCell">{{percentagechangeDict.get(item)}}</div>
+                                                <div class="divTableCell">{{volumeDict.get(item)}}</div>
                                                 <div class="divTableCell">
-                                                    <form id="stockdel-{{ item[1] }}" action="{{ url_for('delete_row', wlName=wlName, wlId=wlId, ticker=item[2]) }}" method="post">
+                                                    <form id="stockdel-{{ item }}" action="{{ url_for('delete_row', wlName=wlName, wlId=wlId, ticker=item) }}" method="post">
                                                         <button type="submit">Delete</button>
                                                     </form> </div>
                                             </div>
                                         </tr>
                                     {% endfor %}
+
+
                                 </div>
                             </div>
                         <br>
+                            <div class="col-lg-6">
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-title">
+                                        <h5>Stock Table </h5>
+                                        <div class="ibox-tools">
+                                            <a class="collapse-link">
+                                                <i class="fa fa-chevron-up"></i>
+                                            </a>
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                <i class="fa fa-wrench"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-user">
+                                                <li><a href="#">Config option 1</a>
+                                                </li>
+                                                <li><a href="#">Config option 2</a>
+                                                </li>
+                                            </ul>
+                                            <a class="close-link">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <td class="ibox-content">
+
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>Ticker</th>
+                                                <th>Last Price</th>
+                                                <th>Change Since Yesterday</th>
+                                                <th>Volume</th>
+                                                <th>Remove Stock</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr></tr>
+                                            {% for item in keys %}
+                                                <tr>
+                                                    <td>{{item}}</td>
+                                                    <td>{{lastDict.get(item)}}</td>
+                                                    <td>
+                                                        <div id="percent_change" class="text-navy">
+                                                        <i class="fa fa-level-up"></i>
+                                                    {{ percentagechangeDict.get(item) }}
+                                                        <script src="test.js">
+
+                                                    </script>
+                                                    </div>
+                                                </td>
+                                                    <td>{{volumeDict.get(item)}}</td>
+                                                    <td><form id="stockdel-{{ item }}" action="{{ url_for('delete_row', wlName=wlName, wlId=wlId, ticker=item) }}" method="post">
+                                                                <button type="submit">Delete</button>
+                                                            </form> </td>
+                                                </tr>
+                                            {% endfor %}
+                                            <tr>
+                                                <td>2</td>
+                                                <td><span class="line">5,3,9,6,5,9,7,3,5,2</span></td>
+                                                <td>Jacob</td>
+                                                <td class="text-warning"> <i class="fa fa-level-down"></i> -20% </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td><span class="line">1,6,3,9,5,9,5,3,9,6,4</span></td>
+                                                <td>Damien</td>
+                                                <td class="text-navy"> <i class="fa fa-level-up"></i> 26% </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
 
                         <form method="POST" action= "{{ url_for('show_watchlist', wlName=wlName, wlId=wlId)}}">
                             {{ form.csrf_token }}
