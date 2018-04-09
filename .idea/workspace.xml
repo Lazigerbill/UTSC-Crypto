@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43af15ec-1539-4c2d-aae4-e7583fccbfcf" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/instance/apikey.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/inspinia.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/inspinia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -244,7 +244,7 @@
     <property name="options.lastSelected" value="configurable.group.tools" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.splitter.main.proportions" value="0.32666665" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -738,9 +738,9 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.34158415" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.52118003" side_tool="true" visible="true" weight="0.32838285" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5219365" side_tool="true" visible="true" weight="0.32838285" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.47881997" visible="true" weight="0.32838285" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.47806355" visible="true" weight="0.32838285" />
       <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49848714" weight="0.32838285" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4795764" weight="0.34323433" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32730263" />
@@ -819,12 +819,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url />
-          <line>18</line>
+          <url>file://$PROJECT_DIR$/static/js/inspinia.js</url>
+          <line>19</line>
           <option name="timeStamp" value="155" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url />
+          <url>file://$PROJECT_DIR$/__init__.py</url>
           <line>9</line>
           <option name="timeStamp" value="156" />
         </line-breakpoint>
