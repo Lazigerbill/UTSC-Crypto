@@ -74,36 +74,8 @@
                         These are your stocks below:
                         <br>
                         <br>
-                        <center>
-                            <div class="divTable blueTable">
-                                <div class="divTableHeading">
-                                    <div class="divTableRow">
-                                        <div class="divTableHead">Ticker</div>
-                                        <div class="divTableHead">Last Price</div>
-                                        <div class="divTableHead">Change since close</div>
-                                        <div class="divTableHead">Volume</div>
-                                    </div>
-                                </div>
-                                <div class="divTableBody">
-                                    {% for item in keys %}
-                                        <tr>
-                                            <div class="divTableRow">
-                                                <div class="divTableCell">{{item}}</div>
-                                                <div class="divTableCell">{{lastDict.get(item)}}</div>
-                                                <div class="divTableCell">{{percentagechangeDict.get(item)}}</div>
-                                                <div class="divTableCell">{{volumeDict.get(item)}}</div>
-                                                <div class="divTableCell">
-                                                    <form id="stockdel-{{ item }}" action="{{ url_for('delete_row', wlName=wlName, wlId=wlId, ticker=item) }}" method="post">
-                                                        <button type="submit">Delete</button>
-                                                    </form> </div>
-                                            </div>
-                                        </tr>
-                                    {% endfor %}
-
-
-                                </div>
-                            </div>
                         <br>
+                    <center>
                             <div class="col-lg-6">
                                 <div class="ibox float-e-margins">
                                     <div class="ibox-title">
@@ -146,11 +118,9 @@
                                                     <td>{{lastDict.get(item)}}</td>
                                                     <td>
                                                         <div id="percent_change" class="text-navy">
-                                                        <i class="fa fa-level-up"></i>
+                                                        <i id = "arrow" class="fa fa-level-up"></i>
                                                     {{ percentagechangeDict.get(item) }}
-                                                        <script src="test.js">
 
-                                                    </script>
                                                     </div>
                                                 </td>
                                                     <td>{{volumeDict.get(item)}}</td>
@@ -175,13 +145,12 @@
                                         </table>
                                     </div>
                                 </div>
-
+                        </center>
                         <form method="POST" action= "{{ url_for('show_watchlist', wlName=wlName, wlId=wlId)}}">
                             {{ form.csrf_token }}
                             {{ form.Ticker.label }} {{ form.Ticker(size=50) }}
                             <input type="submit"  value="Go">
                         </form>
-                        </center>
                     </div>
                 </div>
             </div>
@@ -207,6 +176,9 @@
 <!-- Custom and plugin javascript -->
 <script src="{{ url_for('static', filename='js/inspinia.js') }}"></script>
 <script src="{{ url_for('static', filename='js/plugins/pace/pace.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/test.js') }}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
 

@@ -8,11 +8,17 @@
 # pip install requests
 import requests
 import json
+import os
 
-# ensure config has the write permissions
-from instance.config_file import _token
-
+is_prod = os.environ.get('IS_HEROKU', None)
+if not is_prod:
+    f = open("instance/apikey.txt", 'r')
+    _token = f.readline().strip('\n')
+# def settoken():
+#     _token = os.environ['TOKEN']
+#     return
 # Get JSON data to format and print
+
 def printData(jsonText):
     data = json.loads(jsonText)
     return data
@@ -32,9 +38,7 @@ def getUrl(ticker):
     return api_data
 
 
-response1 = getUrl("BAC")
-
-
+response1 = getUrl("HK")
 # create dictionaries for all fields
 
 def lastDict():

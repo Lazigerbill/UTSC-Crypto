@@ -3,13 +3,18 @@ from flaskext.mysql import MySQL
 from Database import DatabaseDriver, DatabaseInserter, DatabaseSelector, DatabaseDeleter
 from static.Forms.forms import WatchListForm, WatchListContentsForm, StockForm
 from testapi import lastDict, volumeDict, percentchangeDict, getUrl
+import os
+
 
 # launching the app
 app = Flask(__name__)
 # connecting to MYSQL server
 mysql = MySQL()
 # loading keys from config file
-app.config.from_pyfile('instance/config_file.py', silent=True)
+# use heroku config if in production
+is_prod = os.environ.get('IS_HEROKU', None)
+if not is_prod:
+    app.config.from_pyfile('instance/config_file.pyc', silent=True)
 mysql.init_app(app)
 # creating or connecting database
 conn = mysql.connect()
