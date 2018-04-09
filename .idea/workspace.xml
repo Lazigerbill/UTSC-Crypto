@@ -55,13 +55,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.metisMenu.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="jquery.metisMenu.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/plugins/metisMenu/jquery.metisMenu.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -163,6 +172,7 @@
         <option value="$PROJECT_DIR$/instance/apikey.txt" />
         <option value="$PROJECT_DIR$/testapi.py" />
         <option value="$PROJECT_DIR$/static/js/inspinia.js" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -722,7 +732,21 @@
       <option name="project" value="LOCAL" />
       <updated>1523295888462</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added requirements.txt and changed a few things">
+      <created>1523303025829</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1523303025829</updated>
+    </task>
+    <task id="LOCAL-00021" summary="removed jinja2">
+      <created>1523304011478</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1523304011478</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -736,15 +760,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.34158415" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5219365" side_tool="true" visible="true" weight="0.32838285" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5219365" side_tool="true" weight="0.32838285" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.47806355" visible="true" weight="0.32838285" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.47806355" weight="0.32838285" />
       <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49848714" weight="0.32838285" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4795764" weight="0.34323433" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32730263" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21028744" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21028744" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32980332" />
@@ -813,7 +838,9 @@
     <MESSAGE value="TestApi python file created to ensure API connection to Xignite.&#10;Next task will be to save data in a dictionary which will hold the&#10;data and be sent to the HTML for user to view in the tables.&#10;Token is stored in config_file which is not shared." />
     <MESSAGE value="Configured api to frontend, trying to have negative numbers be red&#10;or blue when positive, working on CSS and front end now." />
     <MESSAGE value="Made sure config files work with env variables or for deployment,&#10;tried to fix js but did not work." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made sure config files work with env variables or for deployment,&#10;tried to fix js but did not work." />
+    <MESSAGE value="Added requirements.txt and changed a few things" />
+    <MESSAGE value="removed jinja2" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed jinja2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -849,16 +876,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/testapi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-          <folding>
-            <element signature="e#234#249#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4947">
@@ -1213,6 +1230,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
         </state>
       </provider>
     </entry>
