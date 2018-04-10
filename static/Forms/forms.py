@@ -1,6 +1,7 @@
-from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, BooleanField
-from wtforms.validators import DataRequired, Optional
+
+from flask.ext.wtf import FlaskForm
+from wtforms.fields import StringField, IntegerField
+from wtforms.validators import DataRequired
 
 
 class WatchListForm(FlaskForm):
