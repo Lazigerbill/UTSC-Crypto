@@ -22,10 +22,14 @@ if not is_prod:
     database_connected = DatabaseDriver.create_database(cursor, conn)
 else:
     print(os.environ['MYSQL_DATABASE_DB'])
-    app.config.from_envvar('MYSQL_DATABASE_DB')
-    app.config.from_envvar('MYSQL_DATABASE_HOST')
-    app.config.from_envvar('MYSQL_DATABASE_PASSWORD')
-    app.config.from_envvar('MYSQL_DATABASE_USER')
+
+    app.config.from_object('ProductionConfig')
+    
+    class ProductionConfig:
+        MYSQL_DATABASE_DB = os.environ['MYSQL_DATABASE_DB']
+        MYSQL_DATABASE_HOST = os.environ['MYSQL_DATABASE_HOST']
+        MYSQL_DATABASE_PASSWORD = os.environ['MYSQL_DATABASE_PASSWORD']
+        MYSQL_DATABASE_USER = os.environ['MYSQL_DATABASE_USER']
     mysql.init_app(app)
     # creating or connecting database
     conn = mysql.connect()
