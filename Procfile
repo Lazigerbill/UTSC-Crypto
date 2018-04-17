@@ -1,1 +1,1 @@
-web: python __init__.py runserver --host 0.0.0.0 --port ${PORT}
+web: python __init__.py runserver
