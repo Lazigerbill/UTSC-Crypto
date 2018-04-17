@@ -22,7 +22,7 @@ def insert_new_stock(connection, ticker):
 
 def insert_new_wlcontents(connection, wlId, ticker):
     cursor = connection.cursor()
-    stockId = DatabaseSelector.get_stock_id(cursor, connection, ticker)
+    stockId = DatabaseSelector.get_stock_id(connection, ticker)
     insertion = ("INSERT INTO WLContents (wlId, stockId, Ticker) "
                  "VALUES (%s, %s, %s)")
     data = (wlId, stockId[0], ticker)

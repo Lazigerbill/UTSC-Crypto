@@ -17,7 +17,7 @@ def get_wl_for_user(connection, wlname, wlid):
 def get_user_stock_data(connection, wlname, watchlistid):
     cursor = connection.cursor()
     # if user does not have a watchlist with that id return 0
-    if len(get_wl_for_user(cursor, connection, wlname, watchlistid)) == 0:
+    if len(get_wl_for_user(connection, wlname, watchlistid)) == 0:
         return 0
     else:
         cursor.execute("""SELECT * FROM WLContents WHERE WlId LIKE (%s) """, watchlistid)
