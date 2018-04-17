@@ -21,7 +21,7 @@ if not is_prod:
     cursor = conn.cursor()
     database_connected = DatabaseDriver.create_database(cursor, conn)
 else:
-    app.config.from_envvar(os.environ)
+    app = os.environ.get('FLASK_APP')
     mysql.init_app(app)
     # creating or connecting database
     conn = mysql.connect()
