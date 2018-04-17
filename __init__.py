@@ -21,10 +21,6 @@ if not is_prod:
     cursor = conn.cursor()
     database_connected = DatabaseDriver.create_database(cursor, conn)
 else:
-    print(app.config['MYSQL_DATABASE_DB'])
-    print(app.config['MYSQL_DATABASE_HOST'])
-    print(app.config['MYSQL_DATABASE_PASSWORD'])
-    print(app.config['MYSQL_DATABASE_USER'])
     print(os.environ['MYSQL_DATABASE_DB'])
     app.config.from_envvar('MYSQL_DATABASE_DB')
     app.config.from_envvar('MYSQL_DATABASE_HOST')
