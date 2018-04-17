@@ -38,5 +38,4 @@ def initialize_database(cursor, connection):
     FOREIGN KEY(WlId) REFERENCES WL(WlId),
     FOREIGN KEY(StockId) REFERENCES Stock(StockId))""")
     connection.commit()
-    cursor.close()
     return
