@@ -14,6 +14,7 @@ def use_heroku_database(cursor, connection):
     connection.commit()
     return True
 
+
 def initialize_database(cursor, connection):
     # create WL table
     cursor.execute("""CREATE TABLE IF NOT EXISTS WL(
@@ -37,4 +38,5 @@ def initialize_database(cursor, connection):
     FOREIGN KEY(WlId) REFERENCES WL(WlId),
     FOREIGN KEY(StockId) REFERENCES Stock(StockId))""")
     connection.commit()
+    cursor.close()
     return
