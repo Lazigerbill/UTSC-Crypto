@@ -1,6 +1,9 @@
 === utsc-crypto Config Vars
 CLEARDB_DATABASE_URL:    mysql://bf9f248f64e835:fd745f41@us-cdbr-iron-east-05.cleardb.net/heroku_c7237869c2e3db0?reconnect=true
-MYSQL_DATABASE_DB:       sys
-MYSQL_DATABASE_HOST:     127.0.0.1
-MYSQL_DATABASE_PASSWORD: equity123
-MYSQL_DATABASE_USER:     financelab
+DATABASE_URL:            mysql://bf9f248f64e835:fd745f41@us-cdbr-iron-east-05.cleardb.net/heroku_c7237869c2e3db0?reconnect=true
+IS_HEROKU:               True
+MYSQL_DATABASE_DB:       heroku_c7237869c2e3db0
+MYSQL_DATABASE_HOST:     us-cdbr-iron-east-05.cleardb.net
+MYSQL_DATABASE_PASSWORD: fd745f41
+MYSQL_DATABASE_USER:     bf9f248f64e835
+TOKEN:                   27648361CD8A45D0A51ECA3BE096C13D
