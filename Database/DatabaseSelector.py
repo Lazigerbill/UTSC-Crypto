@@ -1,5 +1,6 @@
 def get_wl(cursor, connection, name):
     # select WL if it exists
+    cursor = connection.cursor()
     cursor.execute("""SELECT * FROM WL WHERE WlName LIKE (%s) """, name)
     connection.commit()
     return cursor.fetchall()
