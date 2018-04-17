@@ -10,7 +10,6 @@ import os
 app = Flask(__name__)
 # connecting to MYSQL server
 mysql = MySQL()
-
 # loading keys from config file
 # use heroku config if in production
 is_prod = os.environ.get('IS_HEROKU', None)

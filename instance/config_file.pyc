@@ -1,5 +1,5 @@
-SECRET_KEY = 'powerful secretkey'
-WTF_CSRF_SECRET_KEY = 'a csrf secret key'
+SECRET_KEY = 'powerfulsecretkey'
+WTF_CSRF_SECRET_KEY = 'acsrfsecretkey'
 MYSQL_DATABASE_USER = 'financelab'
 MYSQL_DATABASE_PASSWORD = 'equity123'
 MYSQL_DATABASE_DB = 'sys'
