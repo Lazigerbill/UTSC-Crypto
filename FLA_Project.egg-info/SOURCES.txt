@@ -1,5 +1,0 @@
-FLA_Project.egg-info/PKG-INFO
-FLA_Project.egg-info/SOURCES.txt
-FLA_Project.egg-info/dependency_links.txt
-FLA_Project.egg-info/requires.txt
-FLA_Project.egg-info/top_level.txt

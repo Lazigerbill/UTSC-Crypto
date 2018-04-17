@@ -49,8 +49,8 @@ def submit():
     form = WatchListForm()
     if form.validate_on_submit():
         wlname = request.form['WlName']
-        if len(DatabaseSelector.get_wl(cursor, conn, wlname)) == 0:
-            DatabaseInserter.insert_new_wl(cursor, conn, wlname)
+        if len(DatabaseSelector.get_wl(conn, wlname)) == 0:
+            DatabaseInserter.insert_new_wl(conn, wlname)
         return redirect(url_for('handle_data', wlName=wlname))
     return render_template('index.html', form=form)
 
@@ -58,15 +58,15 @@ def submit():
 @app.route('/<wlName>', methods=['GET', 'POST'])
 def handle_data(wlName):
     # check if user tries to enter name that does not exist in url
-    if len(DatabaseSelector.get_wl(cursor, conn, wlName)) == 0:
+    if len(DatabaseSelector.get_wl(conn, wlName)) == 0:
         return redirect(url_for('submit'))
 
     # get user watchlist and if wlId is valid return view of watchlist
-    data = DatabaseSelector.get_wl(cursor, conn, wlName)
+    data = DatabaseSelector.get_wl(conn, wlName)
     form = WatchListContentsForm()
     if form.validate_on_submit():
         wlid = request.form['WlId']
-        check = DatabaseSelector.get_wl_for_user(cursor, conn, wlName, wlid)
+        check = DatabaseSelector.get_wl_for_user(conn, wlName, wlid)
         if len(check) == 0:
             return redirect(url_for('handle_data', wlName=wlName))
         return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlid))
@@ -75,24 +75,24 @@ def handle_data(wlName):
 
 @app.route('/<wlName>/<wlId>', methods=['GET', 'POST'])
 def show_watchlist(wlName, wlId):
-    data = DatabaseSelector.get_user_stock_data(cursor, conn, wlName, wlId)
+    data = DatabaseSelector.get_user_stock_data(conn, wlName, wlId)
     if data == 0:
         return redirect(url_for('handle_data', wlName=wlName))
     form = StockForm()
     if form.validate_on_submit():
         ticker = request.form['Ticker']
         # check if user has stock in watchlist
-        man = DatabaseSelector.get_stock_from_wl(cursor, conn, wlId, ticker)
+        man = DatabaseSelector.get_stock_from_wl(conn, wlId, ticker)
         if len(man) != 0:
             return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
         # check if stock exists in database, if not add
-        if len(DatabaseSelector.get_stock(cursor, conn, ticker)) == 0:
-            DatabaseInserter.insert_new_stock(cursor, conn, ticker)
-            DatabaseInserter. insert_new_wlcontents(cursor, conn, wlId, ticker)
+        if len(DatabaseSelector.get_stock(conn, ticker)) == 0:
+            DatabaseInserter.insert_new_stock(conn, ticker)
+            DatabaseInserter. insert_new_wlcontents(conn, wlId, ticker)
             return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
         # add to user watchlist
         else:
-            DatabaseInserter. insert_new_wlcontents(cursor, conn, wlId, ticker)
+            DatabaseInserter. insert_new_wlcontents(conn, wlId, ticker)
             return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
 
     # initialize 3 dictionaries for fields from API
@@ -114,7 +114,7 @@ def show_watchlist(wlName, wlId):
 def delete_row(wlName, wlId, ticker):
     if request.method == 'POST':
         # delete row from table
-        DatabaseDeleter.delete_stock_from_wl(cursor, conn, wlId, ticker)
+        DatabaseDeleter.delete_stock_from_wl(conn, wlId, ticker)
     return redirect(url_for('show_watchlist', wlId=wlId, wlName=wlName))
 
 
@@ -122,7 +122,7 @@ def delete_row(wlName, wlId, ticker):
 def new_watchlist(wlName):
     if request.method == 'POST':
         # create a new watchlist for user
-        DatabaseInserter.insert_new_wl(cursor, conn, wlName)
+        DatabaseInserter.insert_new_wl(conn, wlName)
     return redirect(url_for('handle_data', wlName=wlName))
 
 

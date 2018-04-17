@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43af15ec-1539-4c2d-aae4-e7583fccbfcf" name="Default" comment="" />
+    <list default="true" id="43af15ec-1539-4c2d-aae4-e7583fccbfcf" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Database/DatabaseDeleter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Database/DatabaseDeleter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/DatabaseInserter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Database/DatabaseInserter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/DatabaseSelector.py" beforeDir="false" afterPath="$PROJECT_DIR$/Database/DatabaseSelector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile.Windows" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile.Windows" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-323">
-              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="524">
+              <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -35,11 +41,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseSelector.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatabaseSelector.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Database/DatabaseSelector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+            <state relative-caret-position="17">
+              <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseInserter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Database/DatabaseInserter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseDeleter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Database/DatabaseDeleter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -47,8 +71,8 @@
       <file leaf-file-name="DatabaseDriver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Database/DatabaseDriver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="422">
+              <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -140,10 +164,8 @@
         <option value="$PROJECT_DIR$/templates/testfile.html" />
         <option value="$PROJECT_DIR$/static/css/testCSS.css" />
         <option value="$PROJECT_DIR$/static/css/showform.css" />
-        <option value="$PROJECT_DIR$/Database/DatabaseInserter.py" />
         <option value="$PROJECT_DIR$/templates/begin.html" />
         <option value="$PROJECT_DIR$/templates/showform.html" />
-        <option value="$PROJECT_DIR$/Database/DatabaseDeleter.py" />
         <option value="$PROJECT_DIR$/templates/showwatchlist.html" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/config.ini" />
@@ -173,12 +195,14 @@
         <option value="$PROJECT_DIR$/static/js/inspinia.js" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/static/Forms/forms.py" />
-        <option value="$PROJECT_DIR$/Database/DatabaseDriver.py" />
         <option value="$PROJECT_DIR$/testapi.py" />
         <option value="$PROJECT_DIR$/Procfile" />
-        <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/prodconfig.py" />
+        <option value="$PROJECT_DIR$/Database/DatabaseDriver.py" />
         <option value="$PROJECT_DIR$/Database/DatabaseSelector.py" />
+        <option value="$PROJECT_DIR$/Database/DatabaseInserter.py" />
+        <option value="$PROJECT_DIR$/Database/DatabaseDeleter.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
       </list>
     </option>
   </component>
@@ -188,7 +212,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -741,7 +765,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.34158415" />
@@ -751,7 +775,7 @@
       <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49848714" weight="0.32838285" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4795764" weight="0.34323433" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32730263" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.4697428" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.4697428" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32980332" />
@@ -884,13 +908,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/showform.html" />
-    <entry file="file://$PROJECT_DIR$/Database/DatabaseDeleter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/urllib/parse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -913,13 +930,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/showform.css" />
-    <entry file="file://$PROJECT_DIR$/Database/DatabaseInserter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/animate.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-765" />
@@ -1175,25 +1185,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Database/DatabaseDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="422">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Database/DatabaseSelector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        <state relative-caret-position="17">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database/DatabaseInserter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database/DatabaseDeleter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
+          <folding>
+            <element signature="e#0#68#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
