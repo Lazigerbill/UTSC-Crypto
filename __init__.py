@@ -15,11 +15,17 @@ mysql = MySQL()
 is_prod = os.environ.get('IS_HEROKU', None)
 if not is_prod:
     app.config.from_pyfile('instance/config_file.pyc', silent=True)
-mysql.init_app(app)
-# creating or connecting database
-conn = mysql.connect()
-cursor = conn.cursor()
-database_connected = DatabaseDriver.create_database(cursor, conn)
+    mysql.init_app(app)
+    # creating or connecting database
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    database_connected = DatabaseDriver.create_database(cursor, conn)
+else:
+    mysql.init_app(app)
+    # creating or connecting database
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    database_connected = DatabaseDriver.use_heroku_database(cursor, conn)
 if database_connected is not None:
     DatabaseDriver.initialize_database(cursor, conn)
     print("Success")

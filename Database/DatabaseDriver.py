@@ -9,6 +9,11 @@ def create_database(cursor, connection):
     return True
 
 
+def use_heroku_database(cursor, connection):
+    cursor.execute("""USE heroku_c7237869c2e3db0""")
+    connection.commit()
+    return True
+
 def initialize_database(cursor, connection):
     # create WL table
     cursor.execute("""CREATE TABLE IF NOT EXISTS WL(
