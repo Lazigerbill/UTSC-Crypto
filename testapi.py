@@ -14,6 +14,8 @@ is_prod = os.environ.get('IS_HEROKU', None)
 if not is_prod:
     f = open("instance/apikey.txt", 'r')
     _token = f.readline().strip('\n')
+else:
+    _token = os.environ.get('TOKEN')
 # def settoken():
 #     _token = os.environ['TOKEN']
 #     return
