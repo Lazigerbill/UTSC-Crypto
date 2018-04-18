@@ -58,11 +58,10 @@ def submit():
 @app.route('/<wlName>', methods=['GET', 'POST'])
 def handle_data(wlName):
     # check if user tries to enter name that does not exist in url
-    if len(DatabaseSelector.get_wl(conn, wlName)) == 0:
-        return redirect(url_for('submit'))
-
-    # get user watchlist and if wlId is valid return view of watchlist
     data = DatabaseSelector.get_wl(conn, wlName)
+    if len(data) == 0:
+        return redirect(url_for('submit'))
+    # get user watchlist and if wlId is valid return view of watchlist
     form = WatchListContentsForm()
     if form.validate_on_submit():
         wlid = request.form['WlId']
