@@ -103,7 +103,7 @@ def show_watchlist(wlName, wlId):
     # loop through watchlist and add fields to dict and send dict to html
     for row in data:
         pcDict[row[2]] = getUrl(row[2]).get('PercentChangeFromPreviousClose')
-        volDict[row[2]] = getUrl(row[2]).get('Volume')
+        volDict[row[2]] = round(getUrl(row[2]).get('Volume'))
         priceDict[row[2]] = getUrl(row[2]).get('Last')
     keys = list(volDict.keys())
     return render_template('contents.html', form=form, percentagechangeDict=pcDict,

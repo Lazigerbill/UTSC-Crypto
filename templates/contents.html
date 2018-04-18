@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body onload="changecolor()">
 
 <div id="wrapper">
 
@@ -36,10 +36,10 @@
                     </div>
                 </li>
                 <li class="active">
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Main view</span></a>
+                    <a href="{{ url_for('handle_data', wlName=wlName)}}"><i class="fa fa-th-large"></i> <span class="nav-label">Watchlists</span></a>
                 </li>
                 <li>
-                    <a href="minor.html"><i class="fa fa-th-large"></i> <span class="nav-label">Minor view</span> </a>
+                    <a href="{{ url_for('submit')}}"><i class="fa fa-th-large"></i> <span class="nav-label">Back to Login Page</span> </a>
                 </li>
             </ul>
 
@@ -115,12 +115,9 @@
                                             {% for item in keys %}
                                                 <tr>
                                                     <td>{{item}}</td>
-                                                    <td>{{lastDict.get(item)}}</td>
+                                                    <td>$ {{lastDict.get(item)}}</td>
                                                     <td>
-                                                        <div id="percent_change" class="text-navy">
-                                                        <i id = "arrow" class="fa fa-level-up"></i>
-                                                    {{ percentagechangeDict.get(item) }}
-
+                                                        <div class="text-navy" data-percent=" {{ percentagechangeDict.get(item) }}">
                                                     </div>
                                                 </td>
                                                     <td>{{volumeDict.get(item)}}</td>
@@ -129,28 +126,16 @@
                                                             </form> </td>
                                                 </tr>
                                             {% endfor %}
-                                            <tr>
-                                                <td>2</td>
-                                                <td><span class="line">5,3,9,6,5,9,7,3,5,2</span></td>
-                                                <td>Jacob</td>
-                                                <td class="text-warning"> <i class="fa fa-level-down"></i> -20% </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td><span class="line">1,6,3,9,5,9,5,3,9,6,4</span></td>
-                                                <td>Damien</td>
-                                                <td class="text-navy"> <i class="fa fa-level-up"></i> 26% </td>
-                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-                        </center>
                         <form method="POST" action= "{{ url_for('show_watchlist', wlName=wlName, wlId=wlId)}}">
                             {{ form.csrf_token }}
                             {{ form.Ticker.label }} {{ form.Ticker(size=50) }}
                             <input type="submit"  value="Go">
                         </form>
+                    </center>
                     </div>
                 </div>
             </div>
@@ -172,13 +157,46 @@
 <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
 <script src="{{ url_for('static', filename='js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
-
 <!-- Custom and plugin javascript -->
 <script src="{{ url_for('static', filename='js/inspinia.js') }}"></script>
 <script src="{{ url_for('static', filename='js/plugins/pace/pace.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/test.js') }}"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- iCheck -->
+<script src=" {{ url_for('static', filename='js/plugins/iCheck/icheck.min.js') }}"></script>
+
+<!-- Peity -->
+<script src=" {{ url_for('static', filename='js/demo/peity-demo.js') }}"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
+<script>
+    function changecolor() {
+        var i;
+        var x = document.querySelectorAll('.text-navy');
+        for(i=0; i < x.length; i++) {
+            if (x[i].getAttribute('data-percent') < 0){
+                x[i].className = 'text-warning';
+                console.log("hey");
+                x[i].innerHTML += '<i id = "arrow" class="fa fa-level-down"></i>';
+                x[i].innerHTML += x[i].getAttribute('data-percent');
+                x[i].innerHTML += '%';
+            } else {
+                x[i].innerHTML += '<i id = "arrow" class="fa fa-level-up"></i>'
+                x[i].innerHTML += x[i].getAttribute('data-percent');
+                x[i].innerHTML += '%';
+            }
+        }
+
+}</script>
+
+
 
 
 
