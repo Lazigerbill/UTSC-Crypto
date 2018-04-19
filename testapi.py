@@ -1,8 +1,7 @@
 # This Python script demonstrates
-# making a simple rest call to
-# Xignite API
+# making a simple rest call to Xignite API
 # It receives JSON data from the service.
-# It parses and displays the data to the console
+# It parses and displays the data
 #
 
 import requests
@@ -38,7 +37,6 @@ def getUrl(ticker):
 
 response1 = getUrl("HK")
 # create dictionaries for all fields
-
 
 def lastDict():
     d = {}
