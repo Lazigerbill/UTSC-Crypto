@@ -35,7 +35,15 @@ def getUrl(ticker):
     return api_data
 
 
-response1 = getUrl("HK")
+def getTime():
+    base_url = "https://globalquotes.xignite.com/"
+    action = "v3/xGlobalQuotes.json/GetGlobalDelayedQuote?IdentifierType=Symbol&Identifier=BAC"
+    fields = "&_fields=Message,Time&_token="
+    response = requests.get(base_url+action+fields+_token)
+    text = response.text
+    api_data = json.loads(text)
+    return api_data
+
 # create dictionaries for all fields
 
 def lastDict():
