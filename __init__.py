@@ -57,6 +57,8 @@ def submit():
 
 @app.route('/<wlName>', methods=['GET', 'POST'])
 def handle_data(wlName):
+    # since this will be the first page ran by user, ensure previous db cursor is closed
+    cursor.close()
     # check if user tries to enter name that does not exist in url
     data = DatabaseSelector.get_wl(conn, wlName)
     if len(data) == 0:
