@@ -1,4 +1,4 @@
-Place file called "config_file.py" in this folder and add the following code filling in the required passwords and keys
+Place file called "config_file.pyc" in this folder and add the following code filling in the required passwords and keys
 where necessary:
 
 SECRET_KEY = ''
