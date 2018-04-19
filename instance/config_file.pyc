@@ -1,6 +1,0 @@
-SECRET_KEY = 'powerfulsecretkey'
-WTF_CSRF_SECRET_KEY = 'acsrfsecretkey'
-MYSQL_DATABASE_USER = 'financelab'
-MYSQL_DATABASE_PASSWORD = 'equity123'
-MYSQL_DATABASE_DB = 'sys'
-MYSQL_DATABASE_HOST = '127.0.0.1'
