@@ -34,6 +34,9 @@ else:
 
 @app.route('/')
 def start():
+    # if running production piece, reconnect server since it may have disconnected
+    if is_prod:
+        conn = mysql.connect()
     return redirect(url_for('submit'))
 
 
@@ -47,7 +50,6 @@ def submit():
     form = WatchListForm()
     if form.validate_on_submit():
         wlname = request.form['WlName']
-        conn = mysql.connect()
         # if user does not have a watchlist, create a new one
         if len(DatabaseSelector.get_wl(conn, wlname)) == 0:
             DatabaseInserter.insert_new_wl(conn, wlname)
@@ -73,20 +75,22 @@ def show_watchlist(wlName, wlId):
     form = StockForm()
     if form.validate_on_submit():
         ticker = request.form['Ticker']
-        # check if user has stock in watchlist
-        man = DatabaseSelector.get_stock_from_wl(conn, wlId, ticker)
-        if len(man) != 0:
-            return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
-        # check if stock exists in database, if not add
-        if len(DatabaseSelector.get_stock(conn, ticker)) == 0:
-            DatabaseInserter.insert_new_stock(conn, ticker)
-            DatabaseInserter. insert_new_wlcontents(conn, wlId, ticker)
-            return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
-        # add to user watchlist
-        else:
-            DatabaseInserter. insert_new_wlcontents(conn, wlId, ticker)
-            return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
-
+        # check if ticker is valid
+        if getUrl(ticker) != False:
+            # check if user has stock in watchlist
+            man = DatabaseSelector.get_stock_from_wl(conn, wlId, ticker)
+            if len(man) != 0:
+                return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
+            # check if stock exists in database, if not add
+            if len(DatabaseSelector.get_stock(conn, ticker)) == 0:
+                DatabaseInserter.insert_new_stock(conn, ticker)
+                DatabaseInserter. insert_new_wlcontents(conn, wlId, ticker)
+                return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
+            # add to user watchlist
+            else:
+                DatabaseInserter. insert_new_wlcontents(conn, wlId, ticker)
+                return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
+        return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlId))
     # initialize 3 dictionaries for fields from API
     pcDict = percentchangeDict()
     volDict = volumeDict()

@@ -27,13 +27,14 @@ def printData(jsonText):
 def getUrl(ticker):
     base_url = "http://globalquotes.xignite.com/"
     action = "v3/xGlobalQuotes.json/GetGlobalDelayedQuote?IdentifierType=Symbol&Identifier="
-    fields = "&_fields=Last,PercentChangeFromPreviousClose,Volume,Time&_token="
+    fields = "&_fields=Outcome,Last,PercentChangeFromPreviousClose,Volume,Time&_token="
     response = requests.get(base_url+action+ticker+fields+_token)
     text = response.text
     api_data = json.loads(text)
+    if api_data['Outcome'] != 'Success':
+        return False
 
     return api_data
-
 
 def getTime():
     base_url = "https://globalquotes.xignite.com/"
