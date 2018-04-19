@@ -10,25 +10,23 @@ import os
 app = Flask(__name__)
 # connecting to MYSQL server
 mysql = MySQL()
-# loading keys from config file
-# use heroku config if in production
 is_prod = os.environ.get('IS_HEROKU', None)
+# if not running production code, use local config keys from file and local db
 if not is_prod:
     app.config.from_pyfile('instance/config_file.pyc', silent=True)
     mysql.init_app(app)
     # creating or connecting database
     conn = mysql.connect()
-    cursor = conn.cursor()
-    database_connected = DatabaseDriver.create_database(cursor, conn)
+    database_connected = DatabaseDriver.create_database(conn)
+# if running production code, use config codes from class anf connect to cleardb database
 else:
     app.config.from_object('prodconfig.ProductionConfig')
     mysql.init_app(app)
     # creating or connecting database
     conn = mysql.connect()
-    cursor = conn.cursor()
-    database_connected = DatabaseDriver.use_heroku_database(cursor, conn)
+    database_connected = DatabaseDriver.use_heroku_database(conn)
 if database_connected is not None:
-    DatabaseDriver.initialize_database(cursor, conn)
+    DatabaseDriver.initialize_database(conn)
     print("Success")
 else:
     print("Failure")
@@ -49,6 +47,7 @@ def submit():
     form = WatchListForm()
     if form.validate_on_submit():
         wlname = request.form['WlName']
+        # if user does not have a watchlist, create a new one
         if len(DatabaseSelector.get_wl(conn, wlname)) == 0:
             DatabaseInserter.insert_new_wl(conn, wlname)
         return redirect(url_for('handle_data', wlName=wlname))
@@ -57,8 +56,6 @@ def submit():
 
 @app.route('/<wlName>', methods=['GET', 'POST'])
 def handle_data(wlName):
-    # since this will be the first page ran by user, ensure previous db cursor is closed
-    cursor.close()
     # check if user tries to enter name that does not exist in url
     data = DatabaseSelector.get_wl(conn, wlName)
     if len(data) == 0:

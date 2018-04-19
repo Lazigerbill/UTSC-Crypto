@@ -1,21 +1,27 @@
 
-def create_database(cursor, connection):
-    # create database
+def create_database(connection):
+    cursor = connection.cursor()
+    # create local database
     cursor.execute("""CREATE DATABASE IF NOT EXISTS financelab""")
     connection.commit()
-    # use database
+    # use local database
     cursor.execute("""USE financelab""")
     connection.commit()
+    cursor.close()
     return True
 
 
-def use_heroku_database(cursor, connection):
+def use_heroku_database(connection):
+    # specify we are using the clearDB
+    cursor = connection.cursor()
     cursor.execute("""USE heroku_c7237869c2e3db0""")
     connection.commit()
+    cursor.close()
     return True
 
 
-def initialize_database(cursor, connection):
+def initialize_database(connection):
+    cursor = connection.cursor()
     # create WL table
     cursor.execute("""CREATE TABLE IF NOT EXISTS WL(
     WlId INT NOT NULL AUTO_INCREMENT,
@@ -38,4 +44,5 @@ def initialize_database(cursor, connection):
     FOREIGN KEY(WlId) REFERENCES WL(WlId),
     FOREIGN KEY(StockId) REFERENCES Stock(StockId))""")
     connection.commit()
+    cursor.close()
     return

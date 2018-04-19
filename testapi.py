@@ -1,11 +1,10 @@
-# This simple Python script demonstrates
+# This Python script demonstrates
 # making a simple rest call to
-# XigniteGlobalCurrencies -> ListCurrencies.
+# Xignite API
 # It receives JSON data from the service.
 # It parses and displays the data to the console
 #
 
-# pip install requests
 import requests
 import json
 import os
@@ -16,10 +15,7 @@ if not is_prod:
     _token = f.readline().strip('\n')
 else:
     _token = os.environ.get('TOKEN')
-# def settoken():
-#     _token = os.environ['TOKEN']
-#     return
-# Get JSON data to format and print
+
 
 def printData(jsonText):
     data = json.loads(jsonText)
@@ -42,6 +38,7 @@ def getUrl(ticker):
 
 response1 = getUrl("HK")
 # create dictionaries for all fields
+
 
 def lastDict():
     d = {}
