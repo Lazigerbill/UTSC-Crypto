@@ -70,11 +70,6 @@
     <br>
     <br>
         <center>
-            <form method="POST" action= "{{ url_for('handle_data', wlName=wlName)}}">
-                {{ form.csrf_token }}
-                {{ form.WlId.label }} {{ form.WlId(size=50) }}
-                <input type="submit" value="Go">
-            </form>
         </center>
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
@@ -89,6 +84,7 @@
                                     <div class="divTableRow">
                                         <div class="divTableHead">ID</div>
                                         <div class="divTableHead">WatchlistName</div>
+                                        <div class="divTableHead">Choose Watchlist:</div>
                                     </div>
                                 </div>
                                 <div class="divTableBody">
@@ -98,6 +94,9 @@
                                             <div class="divTableRow">
                                                 <div class="divTableCell">{{item[0]}}</div>
                                                 <div class="divTableCell">{{item[1]}}</div>
+                                                <div class="divTableCell"> <form action="{{ url_for('show_watchlist', wlName=wlName, wlId=item[0]) }}" method="post">
+                                                    <button type="submit">Go</button>
+                                                </form> </div>
                                             </div>
                                         </tr>
                                     {% endfor %}

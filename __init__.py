@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flaskext.mysql import MySQL
 from Database import DatabaseDriver, DatabaseInserter, DatabaseSelector, DatabaseDeleter
-from static.Forms.forms import WatchListForm, WatchListContentsForm, StockForm
+from static.Forms.forms import WatchListForm, StockForm
 from testapi import lastDict, volumeDict, percentchangeDict, getUrl
 import os
 
@@ -60,15 +60,8 @@ def handle_data(wlName):
     data = DatabaseSelector.get_wl(conn, wlName)
     if len(data) == 0:
         return redirect(url_for('submit'))
-    # get user watchlist and if wlId is valid return view of watchlist
-    form = WatchListContentsForm()
-    if form.validate_on_submit():
-        wlid = request.form['WlId']
-        check = DatabaseSelector.get_wl_for_user(conn, wlName, wlid)
-        if len(check) == 0:
-            return redirect(url_for('handle_data', wlName=wlName))
-        return redirect(url_for('show_watchlist', wlName=wlName, wlId=wlid))
-    return render_template('showwatchlist.html', form=form, data=data, wlName=wlName)
+    # return list of user watchlists
+    return render_template('showwatchlist.html', data=data, wlName=wlName)
 
 
 @app.route('/<wlName>/<wlId>', methods=['GET', 'POST'])
