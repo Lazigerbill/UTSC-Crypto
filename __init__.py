@@ -47,6 +47,7 @@ def submit():
     form = WatchListForm()
     if form.validate_on_submit():
         wlname = request.form['WlName']
+        conn = mysql.connect()
         # if user does not have a watchlist, create a new one
         if len(DatabaseSelector.get_wl(conn, wlname)) == 0:
             DatabaseInserter.insert_new_wl(conn, wlname)

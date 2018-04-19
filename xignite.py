@@ -10,7 +10,7 @@ import os
 
 is_prod = os.environ.get('IS_HEROKU', None)
 if not is_prod:
-    f = open("instance/apikey.txt", 'r')
+    f = open("instance/apikey.pyc", 'r')
     _token = f.readline().strip('\n')
 else:
     _token = os.environ.get('TOKEN')
