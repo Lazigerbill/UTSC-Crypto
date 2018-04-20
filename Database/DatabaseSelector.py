@@ -19,16 +19,14 @@ def get_wl_for_user(connection, wlname, wlid):
 
 
 def get_user_stock_data(connection, wlname, watchlistid):
-    cursor = connection.cursor()
     # check if watchlistid is not a number
     if not str(watchlistid).isnumeric():
-        cursor.close()
         return 0
     # if user does not have a watchlist with that id return 0
     if len(get_wl_for_user(connection, wlname, watchlistid)) == 0:
-        cursor.close()
         return 0
     else:
+        cursor = connection.cursor()
         cursor.execute("""SELECT * FROM WLContents WHERE WlId LIKE (%s) """, watchlistid)
         connection.commit()
         results = cursor.fetchall()
@@ -45,6 +43,7 @@ def delete_stock_from_wl(connection, watchlistid, ticker):
     results = cursor.fetchall()
     cursor.close()
     return results
+
 
 def get_stock(connection, ticker):
     cursor = connection.cursor()

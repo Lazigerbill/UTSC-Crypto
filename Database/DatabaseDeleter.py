@@ -1,5 +1,3 @@
-from Database import DatabaseSelector
-
 
 def delete_stock_from_wl(connection, watchlistid, ticker):
     cursor = connection.cursor()
@@ -7,4 +5,6 @@ def delete_stock_from_wl(connection, watchlistid, ticker):
     deletion = ("""DELETE FROM WLContents WHERE WlId LIKE """ + str(watchlistid) + """ AND Ticker LIKE (%s) """)
     cursor.execute(deletion, ticker)
     connection.commit()
-    return cursor.fetchall()
+    results = cursor.fetchall()
+    cursor.close()
+    return results
