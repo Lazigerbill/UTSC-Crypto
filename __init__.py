@@ -42,11 +42,13 @@ def start():
 
 @app.route('/index.html')
 def index():
+    conn = mysql.connect()
     return render_template('index.html')
 
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
+    conn = mysql.connect()
     form = WatchListForm()
     if form.validate_on_submit():
         wlname = request.form['WlName']
@@ -59,6 +61,7 @@ def submit():
 
 @app.route('/<wlName>', methods=['GET', 'POST'])
 def handle_data(wlName):
+    conn = mysql.connect()
     # check if user tries to enter name that does not exist in url
     data = DatabaseSelector.get_wl(conn, wlName)
     if len(data) == 0:
@@ -69,6 +72,7 @@ def handle_data(wlName):
 
 @app.route('/<wlName>/<wlId>', methods=['GET', 'POST'])
 def show_watchlist(wlName, wlId):
+    conn = mysql.connect()
     data = DatabaseSelector.get_user_stock_data(conn, wlName, wlId)
     if data == 0:
         return redirect(url_for('handle_data', wlName=wlName))
@@ -108,6 +112,7 @@ def show_watchlist(wlName, wlId):
 
 @app.route('/delete_row/<wlName>/<wlId>/<ticker>', methods=['GET', 'POST'])
 def delete_row(wlName, wlId, ticker):
+    conn = mysql.connect()
     if request.method == 'POST':
         # delete row from table
         DatabaseDeleter.delete_stock_from_wl(conn, wlId, ticker)
@@ -116,6 +121,7 @@ def delete_row(wlName, wlId, ticker):
 
 @app.route('/new_watchlist/<wlName>', methods=['GET', 'POST'])
 def new_watchlist(wlName):
+    conn = mysql.connect()
     if request.method == 'POST':
         # create a new watchlist for user
         DatabaseInserter.insert_new_wl(conn, wlName)
