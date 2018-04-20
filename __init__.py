@@ -78,7 +78,7 @@ def show_watchlist(wlName, wlId):
         return redirect(url_for('handle_data', wlName=wlName))
     form = StockForm()
     if form.validate_on_submit():
-        ticker = request.form['Ticker']
+        ticker = request.form['Ticker'].upper()
         # check if ticker is valid
         if getUrl(ticker) != False:
             # check if user has stock in watchlist

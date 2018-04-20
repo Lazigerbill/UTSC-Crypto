@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43af15ec-1539-4c2d-aae4-e7583fccbfcf" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contents.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contents.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,18 +20,18 @@
     <SUITE FILE_PATH="coverage/UTSC_Crypto$app__1_.coverage" NAME="app (1) Coverage Results" MODIFIED="1522337157012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/UTSC_Crypto$helloBrady.coverage" NAME="helloBrady Coverage Results" MODIFIED="1520882088026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/UTSC_Crypto$test.coverage" NAME="test Coverage Results" MODIFIED="1521041097061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/UTSC_Crypto$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1524183550723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UTSC_Crypto$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1524188488779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/UTSC_Crypto$UTSC_Crypto.coverage" NAME="UTSC-Crypto Coverage Results" MODIFIED="1519316118230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/UTSC_Crypto$mongodbtest.coverage" NAME="mongodbtest Coverage Results" MODIFIED="1520438506027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Database" />
     <SUITE FILE_PATH="coverage/UTSC_Crypto$app.coverage" NAME="app Coverage Results" MODIFIED="1522335504851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Database" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="131" column="13" lean-forward="true" selection-start-line="131" selection-start-column="13" selection-end-line="131" selection-end-column="13" />
+            <state relative-caret-position="190">
+              <caret line="103" selection-start-line="103" selection-end-line="103" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -37,14 +39,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseDriver.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Database/DatabaseDriver.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseDeleter.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Database/DatabaseDeleter.py">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="contents.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/contents.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="121" column="70" selection-start-line="121" selection-start-column="70" selection-end-line="121" selection-end-column="70" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="DatabaseInserter.py" pinned="false" current-in-tab="false">
@@ -59,7 +60,7 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/flask/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="105">
               <caret line="1996" selection-start-line="1996" selection-end-line="1996" />
             </state>
           </provider>
@@ -68,17 +69,17 @@
       <file leaf-file-name="serving.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/werkzeug/serving.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="300" selection-start-line="300" selection-end-line="300" />
+            <state relative-caret-position="105">
+              <caret line="292" selection-start-line="292" selection-end-line="292" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="socketserver.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="socketserver.py" pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/socketserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="239" selection-start-line="239" selection-end-line="239" />
+            <state relative-caret-position="105">
+              <caret line="237" selection-start-line="237" selection-end-line="237" />
             </state>
           </provider>
         </entry>
@@ -86,7 +87,7 @@
       <file leaf-file-name="DatabaseSelector.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Database/DatabaseSelector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-653">
+            <state relative-caret-position="374">
               <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
             </state>
           </provider>
@@ -95,8 +96,8 @@
       <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/http/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="418" selection-start-line="418" selection-end-line="418" />
+            <state relative-caret-position="17">
+              <caret line="417" selection-start-line="417" selection-end-line="417" />
             </state>
           </provider>
         </entry>
@@ -104,7 +105,7 @@
       <file leaf-file-name="connections.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pymysql/connections.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="11883">
               <caret line="719" selection-start-line="719" selection-end-line="719" />
             </state>
           </provider>
@@ -191,8 +192,6 @@
         <option value="$PROJECT_DIR$/instance/readme.txt" />
         <option value="$PROJECT_DIR$/templates/showwatchlist.html" />
         <option value="$PROJECT_DIR$/templates/showwatchlist.html" />
-        <option value="$PROJECT_DIR$/templates/contents.html" />
-        <option value="$PROJECT_DIR$/templates/contents.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/xignite.py" />
@@ -200,6 +199,8 @@
         <option value="$PROJECT_DIR$/Database/DatabaseDeleter.py" />
         <option value="$PROJECT_DIR$/Database/DatabaseDriver.py" />
         <option value="$PROJECT_DIR$/Database/DatabaseInserter.py" />
+        <option value="$PROJECT_DIR$/templates/contents.html" />
+        <option value="$PROJECT_DIR$/templates/contents.html" />
         <option value="$PROJECT_DIR$/__init__.py" />
       </list>
     </option>
@@ -791,49 +792,49 @@
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.47806355" weight="0.32838285" />
       <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49848714" weight="0.32838285" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4795764" visible="true" weight="0.34323433" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4795764" weight="0.34323433" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32730263" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16111952" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1633888" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32980332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4924357" weight="0.39933994" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.32838285" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4924357" visible="true" weight="0.39933994" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.32838285" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4795764" weight="0.34323433" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16111952" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.34158415" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.47806355" weight="0.32838285" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4795764" weight="0.34323433" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
+      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49848714" weight="0.32838285" />
       <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4924357" visible="true" weight="0.39933994" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32730263" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5219365" side_tool="true" weight="0.32838285" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.47806355" weight="0.32838285" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32980332" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32730263" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" weight="0.32838285" />
-      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.49848714" weight="0.32838285" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -895,6 +896,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/__init__.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="230" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -902,7 +910,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="229" />
+      <option name="time" value="231" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -915,6 +923,20 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/http/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7106">
+          <caret line="418" selection-start-line="418" selection-end-line="418" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pymysql/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12223">
+          <caret line="719" selection-start-line="719" selection-end-line="719" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/helloBrady.py" />
     <entry file="file://$PROJECT_DIR$/Pipfile.lock">
       <provider selected="true" editor-type-id="text-editor">
@@ -1114,13 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/contents.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="147" column="12" selection-start-line="147" selection-start-column="12" selection-end-line="147" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1165,49 +1180,15 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pymysql/connections.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="11883">
           <caret line="719" selection-start-line="719" selection-end-line="719" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="1996" selection-start-line="1996" selection-end-line="1996" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/http/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="418" selection-start-line="418" selection-end-line="418" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/werkzeug/serving.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="300" selection-start-line="300" selection-end-line="300" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Database/DatabaseSelector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-653">
+        <state relative-caret-position="374">
           <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Database/DatabaseDeleter.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Database/DatabaseDriver.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/socketserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="239" selection-start-line="239" selection-end-line="239" />
         </state>
       </provider>
     </entry>
@@ -1218,13 +1199,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/contents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="121" column="70" selection-start-line="121" selection-start-column="70" selection-end-line="121" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="131" column="13" lean-forward="true" selection-start-line="131" selection-start-column="13" selection-end-line="131" selection-end-column="13" />
+        <state relative-caret-position="190">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="1996" selection-start-line="1996" selection-end-line="1996" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/http/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="417" selection-start-line="417" selection-end-line="417" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/werkzeug/serving.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="292" selection-start-line="292" selection-end-line="292" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/socketserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="237" selection-start-line="237" selection-end-line="237" />
         </state>
       </provider>
     </entry>

@@ -119,7 +119,7 @@
                                             <tr></tr>
                                             {% for item in keys %}
                                                 <tr>
-                                                    <td>{{item}}</td>
+                                                    <td>{{item.upper()}}</td>
                                                     <td>$ {{lastDict.get(item)}}</td>
                                                     <td>
                                                         <div class="text-navy" data-percent=" {{ percentagechangeDict.get(item) }}">
